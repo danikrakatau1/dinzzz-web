@@ -1,0 +1,17 @@
+name = "dinzzz"
+main = "worker.js"
+compatibility_date = "2025-06-01"
+
+# Database teks transaksi (Cloudflare D1)
+[[d1_databases]]
+binding = "DB"
+database_name = "dinzzz-db"
+database_id = "96963887-f4f3-4cef-b501-f35536fc5723"
+
+# Penyimpanan foto bukti transfer (Cloudflare KV)
+[[kv_namespaces]]
+binding = "PHOTOS"
+id = "8dec72d3026a47529472d634faaae9b8"
+
+# Secret SESSION_SECRET diatur lewat API/dashboard Cloudflare.
+# Nilainya TIDAK disimpan di repo ini.
