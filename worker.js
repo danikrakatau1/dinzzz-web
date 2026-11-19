@@ -114,10 +114,10 @@ function loginPage(mode) {
     '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n' +
     '<title>' + title + ' — dinzzz.my.id</title>\n' +
     '<link rel="preconnect" href="https://fonts.googleapis.com">\n' +
-    '<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">\n' +
+    '<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&display=swap" rel="stylesheet">\n' +
     '<style>\n' +
     '*{margin:0;padding:0;box-sizing:border-box}\n' +
-    'body{background:#0C1020;color:#EDF0FA;font-family:Montserrat,system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}\n' +
+    'body{background:#0C1020;color:#EDF0FA;font-family:"Source Serif 4",Georgia,"Times New Roman",serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}\n' +
     '.card{background:#151B31;border:1px solid #26304F;border-radius:24px;padding:32px 26px;max-width:400px;width:100%;animation:up .6s ease both}\n' +
     '@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}\n' +
     '.lbl{color:#2DD4EE;font-weight:700;font-size:14px;letter-spacing:.4px}\n' +
@@ -165,11 +165,11 @@ const APP_HTML = `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Monitoring Keuangan — dinzzz.my.id</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700;8..60,900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0C1020;--card:#151B31;--line:#26304F;--txt:#EDF0FA;--mut:#9AA6C7;--ind:#5B5BD6;--cyn:#2DD4EE;--ros:#FB7185;--gld:#F5C451}
-body{background:var(--bg);color:var(--txt);font-family:Montserrat,system-ui,sans-serif;padding:22px 16px 120px;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--txt);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;padding:22px 16px 120px;-webkit-font-smoothing:antialiased}
 .wrap{max-width:560px;margin:0 auto}
 @keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .anim{animation:up .55s ease both}
@@ -285,6 +285,38 @@ h1.title{font-size:34px;font-weight:900;line-height:1.12;margin:6px 0 4px}
 .kv span{color:var(--mut)} .kv b{text-align:right;font-variant-numeric:tabular-nums}
 .btn-del{width:100%;background:none;border:1px solid rgba(251,113,133,.5);color:var(--ros);border-radius:14px;padding:13px;font-family:inherit;font-size:14.5px;font-weight:800;cursor:pointer;margin-top:16px}
 footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;opacity:.7;line-height:1.6}
+.pickbtn{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:13px 14px;color:var(--txt);font-family:inherit;font-size:15.5px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left}
+.pickbtn svg{flex:none;color:var(--mut)}
+.pickbtn:active{border-color:var(--ind)}
+.optrow{display:flex;justify-content:space-between;align-items:center;width:100%;background:var(--bg);border:1px solid var(--line);color:var(--txt);border-radius:14px;padding:15px 16px;font-family:inherit;font-size:15.5px;font-weight:600;cursor:pointer;margin-bottom:10px;text-align:left}
+.optrow.sel{border-color:var(--ind);background:rgba(91,91,214,.14)}
+.optrow .ck{color:var(--cyn);visibility:hidden}
+.optrow.sel .ck{visibility:visible}
+.calnav{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.calnav b{font-size:16.5px}
+.calnav button{background:var(--bg);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.calgrid .dow{color:var(--mut);font-size:11.5px;font-weight:800;text-align:center;padding:6px 0;letter-spacing:.5px}
+.day{aspect-ratio:1;background:var(--bg);border:1px solid transparent;color:var(--txt);border-radius:12px;font-family:inherit;font-size:14.5px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.day:hover{border-color:var(--line)}
+.day.sel{background:var(--ind);color:#fff;font-weight:800}
+.day.today{border-color:var(--cyn);color:var(--cyn)}
+.day.sel.today{color:#fff;border-color:var(--ind)}
+.day.blank{background:none;cursor:default}
+.tgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:6px}
+.tchip{background:var(--bg);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:11px 0;font-family:inherit;font-size:14.5px;font-weight:600;cursor:pointer;text-align:center}
+.tchip.sel{background:var(--ind);border-color:var(--ind);color:#fff;font-weight:800}
+.tlabel{font-size:11.5px;font-weight:800;color:var(--mut);letter-spacing:.8px;text-transform:uppercase;margin:14px 0 8px}
+svg.ic{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+svg.ic.sm{width:16px;height:16px}
+.txic svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round}
+.sum .cap .ic svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-4px;margin-right:7px}
+.backbtn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-4px}
+.chev svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;display:block}
+.photoBox svg{width:30px;height:30px;stroke:var(--mut);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.fchip svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-2px;margin-right:5px}
+.logout svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vertical-align:-2px;margin-right:5px}
 [hidden]{display:none !important}
 </style>
 </head>
@@ -299,7 +331,7 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
       <h1 class="title">Monitoring<br>Keuangan</h1>
       <div class="sub">Dashboard uang pribadi</div>
     </div>
-    <button class="logout" id="btnLogout">Keluar</button>
+    <button class="logout" id="btnLogout"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>Keluar</button>
   </header>
 
   <section class="card hero anim d1">
@@ -318,17 +350,17 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
 
   <section class="grid3 anim d2">
     <div class="card sum">
-      <div class="cap c-in"><span class="ic bg-in">↑</span>TOTAL MASUK</div>
+      <div class="cap c-in"><span class="ic bg-in"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>TOTAL MASUK</div>
       <div class="amt c-in" id="sumIn">Rp 0</div>
       <div class="cnt" id="sumInCnt">0 transaksi masuk</div>
     </div>
     <div class="card sum">
-      <div class="cap c-out"><span class="ic bg-out">↓</span>TOTAL KELUAR</div>
+      <div class="cap c-out"><span class="ic bg-out"><svg viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg></span>TOTAL KELUAR</div>
       <div class="amt c-out" id="sumOut">Rp 0</div>
       <div class="cnt" id="sumOutCnt">0 transaksi keluar</div>
     </div>
     <div class="card sum">
-      <div class="cap c-net"><span class="ic bg-net">→</span>SELISIH</div>
+      <div class="cap c-net"><span class="ic bg-net"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>SELISIH</div>
       <div class="amt c-net" id="sumNet">Rp 0</div>
       <div class="cnt" id="sumNetNote">—</div>
     </div>
@@ -343,7 +375,7 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
   </section>
 
   <section class="card sect acc anim d4" id="accChart">
-    <button class="acc-head" data-acc="accChart"><h2>Arus Kas</h2><span class="chev">⌄</span></button>
+    <button class="acc-head" data-acc="accChart"><h2>Arus Kas</h2><span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></button>
     <div class="acc-body">
       <div class="chart" id="chart"></div>
       <div class="legend"><span><span class="dot" style="background:var(--cyn)"></span>Masuk</span><span><span class="dot" style="background:var(--ros)"></span>Keluar</span></div>
@@ -351,7 +383,7 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
   </section>
 
   <section class="card sect acc anim d5" id="accCat">
-    <button class="acc-head" data-acc="accCat"><h2>Pengeluaran per Kategori</h2><span class="chev">⌄</span></button>
+    <button class="acc-head" data-acc="accCat"><h2>Pengeluaran per Kategori</h2><span class="chev"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></span></button>
     <div class="acc-body"><div id="catList"></div></div>
   </section>
 
@@ -361,7 +393,7 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
 <!-- ================= DETAIL TRANSAKSI ================= -->
 <div id="viewDetail" hidden>
   <div class="dhead anim">
-    <button class="backbtn" id="btnBack">←</button>
+    <button class="backbtn" id="btnBack"><svg viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg></button>
     <div>
       <h1>Detail Transaksi</h1>
       <div class="sub" style="color:var(--mut)">dinzzz.my.id/detail-transaksi</div>
@@ -374,8 +406,8 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
     <button class="fchip" data-dp="3bulan">3 Bulan Terakhir</button>
     <button class="fchip" data-dp="tahunini">Tahun ini</button>
     <button class="fchip" data-dp="semua">Semua</button>
-    <button class="fchip tool" id="btnMonth">📅 Pilih Bulan</button>
-    <button class="fchip tool" id="btnCal">🗓 Kalender</button>
+    <button class="fchip tool" id="btnMonth"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Pilih Bulan</button>
+    <button class="fchip tool" id="btnCal"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h3M13 18h3"/></svg>Kalender</button>
   </div>
   <div class="sub anim d1" id="scopeLabel" style="color:var(--cyn);font-weight:700;margin-top:12px;font-size:13.5px"></div>
 
@@ -393,8 +425,8 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
 
 <div class="bottombar" id="bottomBar">
   <div class="inwrap">
-    <button class="btn btn-in" id="btnAddIn">+ Catat Masuk</button>
-    <button class="btn btn-out" id="btnAddOut">− Catat Keluar</button>
+    <button class="btn btn-in" id="btnAddIn"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Catat Masuk</button>
+    <button class="btn btn-out" id="btnAddOut"><svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>Catat Keluar</button>
   </div>
 </div>
 
@@ -416,7 +448,7 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
     <div class="fld">
       <label>Foto bukti transfer (opsional)</label>
       <div class="photoBox" id="photoBox">
-        <div id="photoEmpty">📷 Ketuk untuk pilih foto bukti<br><small>boleh dikosongkan</small></div>
+        <div id="photoEmpty"><svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg><br>Ketuk untuk pilih foto bukti<br><small>boleh dikosongkan</small></div>
         <img id="photoImg" hidden alt="Foto bukti">
         <div id="photoName"></div>
         <div class="photoSize" id="photoSize"></div>
@@ -426,14 +458,12 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
     </div>
     <div class="opt">
       <div class="frow">
-        <div class="fld"><label>Kategori (opsional)</label><select id="fCategory"></select></div>
-        <div class="fld"><label>Dompet (opsional)</label>
-          <select id="fWallet"><option value="">—</option><option>Tunai</option><option>Bank</option><option>E-Wallet</option></select>
-        </div>
+        <div class="fld"><label>Kategori (opsional)</label><button type="button" class="pickbtn" id="fCategoryBtn"><span id="fCategoryVal">—</span><svg class="ic sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+        <div class="fld"><label>Dompet (opsional)</label><button type="button" class="pickbtn" id="fWalletBtn"><span id="fWalletVal">—</span><svg class="ic sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
       </div>
       <div class="frow">
-        <div class="fld"><label>Tanggal</label><input type="date" id="fDate"></div>
-        <div class="fld"><label>Jam</label><input type="time" id="fTime"></div>
+        <div class="fld"><label>Tanggal</label><button type="button" class="pickbtn" id="fDateBtn"><span id="fDateVal">—</span><svg class="ic sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+        <div class="fld"><label>Jam</label><button type="button" class="pickbtn" id="fTimeBtn"><span id="fTimeVal">—</span><svg class="ic sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
       </div>
       <div class="fld"><label>Catatan (opsional)</label><textarea id="fNote" placeholder="Catatan tambahan..."></textarea></div>
     </div>
@@ -456,8 +486,8 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
 <div class="sheet" id="calSheet">
   <h3>Pilih Rentang Tanggal</h3>
   <div class="ssub">Kayak dashboard iklan — pilih mulai & selesai</div>
-  <div class="fld"><label>Tanggal Mulai</label><input type="date" id="calFrom"></div>
-  <div class="fld"><label>Tanggal Selesai</label><input type="date" id="calTo"></div>
+  <div class="fld"><label>Tanggal Mulai</label><button type="button" class="pickbtn" id="calFromBtn"><span id="calFromLbl">—</span><svg class="ic sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  <div class="fld"><label>Tanggal Selesai</label><button type="button" class="pickbtn" id="calToBtn"><span id="calToLbl">—</span><svg class="ic sm" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></div>
   <div class="sheetbtns">
     <button type="button" class="btn-cancel" data-close>Batal</button>
     <button type="button" class="btn-save" id="btnCalApply">Terapkan</button>
@@ -473,6 +503,44 @@ footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;op
   <div id="dtNoPhoto" class="empty" hidden>Tidak ada foto bukti</div>
   <button class="btn-del" id="btnDelete">Hapus Catatan Ini</button>
   <div class="sheetbtns"><button type="button" class="btn-cancel" data-close style="flex:1">Tutup</button></div>
+</div>
+
+<!-- Pemilih opsi -->
+<div class="sheet" id="pickerSheet">
+  <h3 id="pickerTitle">Pilih</h3>
+  <div class="ssub" id="pickerSub"></div>
+  <div id="pickerList"></div>
+  <div class="sheetbtns"><button type="button" class="btn-cancel" data-close style="flex:1">Batal</button></div>
+</div>
+
+<!-- Pemilih tanggal -->
+<div class="sheet" id="dateSheet">
+  <h3>Pilih Tanggal</h3>
+  <div class="ssub">Ketuk tanggalnya</div>
+  <div class="calnav">
+    <button type="button" id="calPrev"><svg class="ic sm" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+    <b id="calMonthLabel">—</b>
+    <button type="button" id="calNext"><svg class="ic sm" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+  </div>
+  <div class="calgrid" id="calGrid"></div>
+  <div class="sheetbtns">
+    <button type="button" class="btn-cancel" data-close>Batal</button>
+    <button type="button" class="btn-save" id="calToday">Hari Ini</button>
+  </div>
+</div>
+
+<!-- Pemilih jam -->
+<div class="sheet" id="timeSheet">
+  <h3>Pilih Jam</h3>
+  <div class="ssub" id="timePreview">--:--</div>
+  <div class="tlabel">Jam</div>
+  <div class="tgrid" id="hourGrid"></div>
+  <div class="tlabel">Menit</div>
+  <div class="tgrid" id="minGrid"></div>
+  <div class="sheetbtns">
+    <button type="button" class="btn-cancel" data-close>Batal</button>
+    <button type="button" class="btn-save" id="timeOk">Pakai Jam Ini</button>
+  </div>
 </div>
 
 <div class="toast" id="toast">Transaksi tersimpan ✓</div>
@@ -543,7 +611,7 @@ function txRow(tx, clickable){
   if (tx.category) meta += ' · ' + esc(tx.category);
   if (tx.wallet) meta += ' · ' + esc(tx.wallet);
   return '<div class="txrow' + (clickable ? ' click' : '') + '" data-id="' + tx.id + '">' +
-    '<div class="txic ' + tx.type + '">' + (tx.type === 'in' ? '+' : '−') + '</div>' +
+    '<div class="txic ' + tx.type + '">' + (tx.type === 'in' ? '<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>' : '<svg viewBox="0 0 24 24"><path d="M5 12h14"/></svg>') + '</div>' +
     '<div class="txmain"><div class="txtitle">' + esc(tx.title) + '</div>' +
     '<div class="txmeta">' + meta + '</div>' +
     '<div class="txbal">Saldo: ' + rp(tx._bal) + '</div></div>' +
@@ -725,9 +793,12 @@ $('monthList').addEventListener('click', function(e){
   detail.mode = 'month'; detail.month = b.getAttribute('data-month');
   clearDetailChips(); closeSheets(); renderDetail();
 });
-$('btnCal').addEventListener('click', function(){ $('calFrom').value = monthStart(todayJKT()); $('calTo').value = todayJKT(); openSheet('calSheet'); });
+var calFromSel = '', calToSel = '';
+$('btnCal').addEventListener('click', function(){ calFromSel = monthStart(todayJKT()); calToSel = todayJKT(); $('calFromLbl').textContent = dateShort(calFromSel); $('calToLbl').textContent = dateShort(calToSel); openSheet('calSheet'); });
+$('calFromBtn').addEventListener('click', function(){ openDatePicker(calFromSel, function(v){ calFromSel = v; $('calFromLbl').textContent = dateShort(v); }, 'calSheet'); });
+$('calToBtn').addEventListener('click', function(){ openDatePicker(calToSel, function(v){ calToSel = v; $('calToLbl').textContent = dateShort(v); }, 'calSheet'); });
 $('btnCalApply').addEventListener('click', function(){
-  var f = $('calFrom').value, t = $('calTo').value;
+  var f = calFromSel, t = calToSel;
   if (!f || !t) { showToast('Isi kedua tanggal dulu', true); return; }
   if (f > t) { var tmp = f; f = t; t = tmp; }
   detail.mode = 'range'; detail.from = f; detail.to = t;
@@ -736,6 +807,7 @@ $('btnCalApply').addEventListener('click', function(){
 
 // ---------- Form catat ----------
 var CATS = { in: ['Gaji', 'Bonus', 'Usaha', 'Transfer Masuk', 'Lainnya'], out: ['Belanja', 'Makan & Minum', 'Tagihan', 'Transport', 'Kesehatan', 'Hiburan', 'Lainnya'] };
+var formCategory = '', formWallet = '', formDate = '', formTime = '';
 function openForm(type){
   formType = type;
   $('formTitle').textContent = type === 'in' ? 'Catat Masuk' : 'Catat Keluar';
@@ -743,11 +815,12 @@ function openForm(type){
   $('formSub').style.color = '';
   $('fTitleLabel').textContent = type === 'in' ? 'Dari mana' : 'Buat apa / ke mana';
   $('btnSave').className = 'btn-save' + (type === 'out' ? ' out' : '');
-  var opts = '<option value="">—</option>';
-  CATS[type].forEach(function(c){ opts += '<option>' + c + '</option>'; });
-  $('fCategory').innerHTML = opts;
-  $('fAmount').value = ''; $('fTitle').value = ''; $('fNote').value = ''; $('fWallet').value = '';
-  $('fDate').value = todayJKT(); $('fTime').value = nowJKT();
+  formCategory = ''; formWallet = '';
+  $('fCategoryVal').textContent = '—'; $('fWalletVal').textContent = '—';
+  $('fAmount').value = ''; $('fTitle').value = ''; $('fNote').value = '';
+  formDate = todayJKT(); formTime = nowJKT();
+  $('fDateVal').textContent = dateShort(formDate);
+  $('fTimeVal').textContent = formTime;
   resetPhoto();
   openSheet('formSheet');
 }
@@ -799,8 +872,8 @@ $('txForm').addEventListener('submit', function(ev){
   if (!amount || amount <= 0 || !title) { $('formSub').textContent = 'Jumlah dan ' + (formType === 'in' ? 'sumber (dari mana)' : 'tujuan (buat apa)') + ' wajib diisi.'; $('formSub').style.color = 'var(--ros)'; return; }
   var fd = new FormData();
   fd.append('type', formType); fd.append('amount', amount); fd.append('title', title);
-  fd.append('category', $('fCategory').value); fd.append('wallet', $('fWallet').value);
-  fd.append('date', $('fDate').value || todayJKT()); fd.append('time', $('fTime').value || nowJKT());
+  fd.append('category', formCategory); fd.append('wallet', formWallet);
+  fd.append('date', formDate || todayJKT()); fd.append('time', formTime || nowJKT());
   fd.append('note', $('fNote').value.trim());
   if (pendingPhoto) fd.append('photo', pendingPhoto, 'bukti.jpg');
   var btn = $('btnSave'); btn.disabled = true; btn.textContent = 'Menyimpan...';
@@ -845,6 +918,83 @@ $('btnDelete').addEventListener('click', function(){
     .then(function(j){ if (j.ok) { closeSheets(); showToast('Catatan dihapus'); loadTxs(); } else showToast(j.error || 'Gagal menghapus', true); })
     .catch(function(){ showToast('Koneksi bermasalah', true); });
 });
+
+// ---------- Pemilih custom (pengganti dropdown bawaan sistem) ----------
+var CHECK_SVG = '<svg class="ic sm ck" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
+function openOptions(title, sub, options, current, onPick){
+  $('pickerTitle').textContent = title;
+  $('pickerSub').textContent = sub || '';
+  var html = '';
+  options.forEach(function(o){ html += '<button type="button" class="optrow' + (o.value === current ? ' sel' : '') + '" data-val="' + esc(o.value) + '"><span>' + esc(o.label) + '</span>' + CHECK_SVG + '</button>'; });
+  $('pickerList').innerHTML = html;
+  var rows = $('pickerList').querySelectorAll('.optrow');
+  for (var i = 0; i < rows.length; i++) rows[i].addEventListener('click', function(){ var v = this.getAttribute('data-val'); onPick(v); });
+  openSheet('pickerSheet');
+}
+$('fCategoryBtn').addEventListener('click', function(){
+  var opts = [{ value: '', label: '— (kosong)' }];
+  CATS[formType].forEach(function(c){ opts.push({ value: c, label: c }); });
+  openOptions('Pilih Kategori', 'Opsional — boleh dikosongkan', opts, formCategory, function(v){ formCategory = v; $('fCategoryVal').textContent = v || '—'; openSheet('formSheet'); });
+});
+$('fWalletBtn').addEventListener('click', function(){
+  var opts = [{ value: '', label: '— (kosong)' }, { value: 'Tunai', label: 'Tunai' }, { value: 'Bank', label: 'Bank' }, { value: 'E-Wallet', label: 'E-Wallet' }];
+  openOptions('Pilih Dompet', 'Opsional — boleh dikosongkan', opts, formWallet, function(v){ formWallet = v; $('fWalletVal').textContent = v || '—'; openSheet('formSheet'); });
+});
+
+var dpView = '', dpSel = '', dpCb = null, dpReturn = null;
+function openDatePicker(current, cb, returnSheet){
+  dpSel = current || todayJKT(); dpView = monthOf(dpSel); dpCb = cb; dpReturn = returnSheet || null;
+  renderCal(); openSheet('dateSheet');
+}
+function renderCal(){
+  $('calMonthLabel').textContent = monthLabel(dpView);
+  var startDow = new Date(Date.UTC(+dpView.slice(0, 4), +dpView.slice(5, 7) - 1, 1)).getUTCDay();
+  var daysInMonth = +addDays(addMonths(dpView, 1) + '-01', -1).slice(8, 10);
+  var dows = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+  var html = '';
+  dows.forEach(function(d){ html += '<div class="dow">' + d + '</div>'; });
+  for (var i = 0; i < startDow; i++) html += '<div class="day blank"></div>';
+  var t = todayJKT();
+  for (var d = 1; d <= daysInMonth; d++) {
+    var ds = dpView + '-' + pad(d);
+    html += '<button type="button" class="day' + (ds === dpSel ? ' sel' : '') + (ds === t ? ' today' : '') + '" data-date="' + ds + '">' + d + '</button>';
+  }
+  $('calGrid').innerHTML = html;
+  var btns = $('calGrid').querySelectorAll('.day[data-date]');
+  for (var j = 0; j < btns.length; j++) btns[j].addEventListener('click', function(){ pickDate(this.getAttribute('data-date')); });
+}
+function pickDate(v){
+  if (dpCb) dpCb(v);
+  if (dpReturn) { var r = dpReturn; dpReturn = null; openSheet(r); } else closeSheets();
+}
+$('calPrev').addEventListener('click', function(){ dpView = addMonths(dpView, -1); renderCal(); });
+$('calNext').addEventListener('click', function(){ dpView = addMonths(dpView, 1); renderCal(); });
+$('calToday').addEventListener('click', function(){ pickDate(todayJKT()); });
+$('fDateBtn').addEventListener('click', function(){ openDatePicker(formDate, function(v){ formDate = v; $('fDateVal').textContent = dateShort(v); }, 'formSheet'); });
+
+var tpH = '12', tpM = '00', tpCb = null, tpReturn = null;
+function openTimePicker(current, cb, returnSheet){
+  var p = (current || '12:00').split(':'); tpH = p[0] || '12'; tpM = p[1] || '00';
+  tpCb = cb; tpReturn = returnSheet || null;
+  renderTime(); openSheet('timeSheet');
+}
+function renderTime(){
+  $('timePreview').textContent = 'Jam terpilih: ' + tpH + ':' + tpM;
+  var hh = '', mm = '', h, m, hs, ms;
+  for (h = 0; h < 24; h++) { hs = pad(h); hh += '<button type="button" class="tchip' + (hs === tpH ? ' sel' : '') + '" data-h="' + hs + '">' + hs + '</button>'; }
+  for (m = 0; m < 60; m += 5) { ms = pad(m); mm += '<button type="button" class="tchip' + (ms === tpM ? ' sel' : '') + '" data-m="' + ms + '">' + ms + '</button>'; }
+  $('hourGrid').innerHTML = hh; $('minGrid').innerHTML = mm;
+  var hb = $('hourGrid').querySelectorAll('[data-h]');
+  for (var i = 0; i < hb.length; i++) hb[i].addEventListener('click', function(){ tpH = this.getAttribute('data-h'); renderTime(); });
+  var mb = $('minGrid').querySelectorAll('[data-m]');
+  for (var j = 0; j < mb.length; j++) mb[j].addEventListener('click', function(){ tpM = this.getAttribute('data-m'); renderTime(); });
+}
+$('timeOk').addEventListener('click', function(){
+  var v = tpH + ':' + tpM;
+  if (tpCb) tpCb(v);
+  if (tpReturn) { var r = tpReturn; tpReturn = null; openSheet(r); } else closeSheets();
+});
+$('fTimeBtn').addEventListener('click', function(){ openTimePicker(formTime, function(v){ formTime = v; $('fTimeVal').textContent = v; }, 'formSheet'); });
 
 // ---------- Init ----------
 if (location.pathname.indexOf('detail-transaksi') >= 0) showView('detail', false); else showView('dash', false);
