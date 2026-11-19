@@ -284,6 +284,7 @@ h1.title{font-size:34px;font-weight:900;line-height:1.12;margin:6px 0 4px}
 .kv{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:1px solid rgba(38,48,79,.55);font-size:14px}
 .kv span{color:var(--mut)} .kv b{text-align:right;font-variant-numeric:tabular-nums}
 .btn-del{width:100%;background:none;border:1px solid rgba(251,113,133,.5);color:var(--ros);border-radius:14px;padding:13px;font-family:inherit;font-size:14.5px;font-weight:800;cursor:pointer;margin-top:16px}
+.btn-danger{flex:1.2;background:linear-gradient(135deg,#E11D48,#FB7185);color:#fff;border:none;border-radius:14px;padding:15px;font-family:inherit;font-size:15.5px;font-weight:800;cursor:pointer}
 footer.foot{color:var(--mut);font-size:12px;text-align:center;margin-top:28px;opacity:.7;line-height:1.6}
 .pickbtn{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:13px 14px;color:var(--txt);font-family:inherit;font-size:15.5px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left}
 .pickbtn svg{flex:none;color:var(--mut)}
@@ -503,6 +504,16 @@ svg.ic.sm{width:16px;height:16px}
   <div id="dtNoPhoto" class="empty" hidden>Tidak ada foto bukti</div>
   <button class="btn-del" id="btnDelete">Hapus Catatan Ini</button>
   <div class="sheetbtns"><button type="button" class="btn-cancel" data-close style="flex:1">Tutup</button></div>
+</div>
+
+<!-- Konfirmasi hapus -->
+<div class="sheet" id="confirmSheet">
+  <h3>Hapus Catatan Ini?</h3>
+  <div class="ssub">Catatan yang dihapus tidak bisa dikembalikan.</div>
+  <div class="sheetbtns">
+    <button type="button" class="btn-cancel" data-close>Batal</button>
+    <button type="button" class="btn-danger" id="btnConfirmDelete">Ya, Hapus</button>
+  </div>
 </div>
 
 <!-- Pemilih opsi -->
@@ -911,9 +922,9 @@ function openTxDetail(id){
   else { $('dtPhoto').hidden = true; $('dtPhoto').src = ''; $('dtNoPhoto').hidden = false; }
   openSheet('detailSheet');
 }
-$('btnDelete').addEventListener('click', function(){
+$('btnDelete').addEventListener('click', function(){ if (currentDetailId) openSheet('confirmSheet'); });
+$('btnConfirmDelete').addEventListener('click', function(){
   if (!currentDetailId) return;
-  if (!confirm('Hapus catatan ini? Saldo akan dihitung ulang.')) return;
   fetch('/api/transactions/' + currentDetailId, { method: 'DELETE' }).then(function(r){ return r.json(); })
     .then(function(j){ if (j.ok) { closeSheets(); showToast('Catatan dihapus'); loadTxs(); } else showToast(j.error || 'Gagal menghapus', true); })
     .catch(function(){ showToast('Koneksi bermasalah', true); });
