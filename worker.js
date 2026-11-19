@@ -692,7 +692,7 @@ function renderDash(){
   $('sumNetNote').textContent = s.net >= 0 ? 'Masih surplus, aman' : 'Keluar lebih besar';
   var desc = list.slice().reverse();
   var top = desc.slice(0, 10);
-  $('dashList').innerHTML = top.length ? top.map(function(tx){ return txRow(tx, false); }).join('') : '<div class="empty">Belum ada catatan di periode ini.<br>Ketuk + Catat Masuk atau − Catat Keluar untuk mulai.</div>';
+  $('dashList').innerHTML = top.length ? top.map(function(tx){ return txRow(tx, true); }).join('') : '<div class="empty">Belum ada catatan di periode ini.<br>Ketuk + Catat Masuk atau − Catat Keluar untuk mulai.</div>';
   renderChart(range, list);
   renderCats(list);
   var acc = $('accChart'); if (acc.classList.contains('open')) { var b = acc.querySelector('.acc-body'); b.style.maxHeight = b.scrollHeight + 'px'; }
@@ -899,6 +899,10 @@ $('txForm').addEventListener('submit', function(ev){
 
 // ---------- Detail satu transaksi ----------
 $('detailList').addEventListener('click', function(e){
+  var row = e.target.closest('.txrow'); if (!row) return;
+  openTxDetail(parseInt(row.getAttribute('data-id'), 10));
+});
+$('dashList').addEventListener('click', function(e){
   var row = e.target.closest('.txrow'); if (!row) return;
   openTxDetail(parseInt(row.getAttribute('data-id'), 10));
 });
